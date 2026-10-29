@@ -1,0 +1,6 @@
+{
+  "name": "Trợ Lý Y Tế Số & Giám Sát Dịch Tễ Quảng Ngãi",
+  "description": "Hệ thống trợ lý y tế thông minh kết nối Bệnh nhân và Bệnh viện tại Quảng Ngãi: tra cứu triệu chứng, nạp data Excel bệnh tật, nhật ký bệnh và scan đơn thuốc, dự toán chi phí khám chữa bệnh, khoanh vùng dịch tễ và cấp cứu khẩn cấp 115.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
