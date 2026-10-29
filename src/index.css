@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import "leaflet/dist/leaflet.css";
+
+/* Leaflet custom map markers and pulsating animation styles */
+.leaflet-container {
+  font-family: inherit;
+  z-index: 10;
+}
+
+@keyframes map-pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7);
+    transform: scale(1);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(225, 29, 72, 0);
+    transform: scale(1.08);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+    transform: scale(1);
+  }
+}
+
+@keyframes map-pulse-orange {
+  0% {
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(234, 88, 12, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(234, 88, 12, 0);
+  }
+}
+
+.map-marker-pulse-red {
+  animation: map-pulse-red 2s infinite ease-in-out;
+}
+
+.map-marker-pulse-orange {
+  animation: map-pulse-orange 2.2s infinite ease-in-out;
+}
+
+/* Custom Leaflet popup styling */
+.custom-leaflet-popup .leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.15), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  overflow: hidden;
+}
+
+.custom-leaflet-popup .leaflet-popup-content {
+  margin: 0;
+  line-height: inherit;
+}
+
+.custom-leaflet-popup .leaflet-popup-tip-container {
+  overflow: visible;
+}
+
+/* Smooth global transition for theme switching */
+html {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* Custom dark scrollbar */
+html.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #090d16;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Leaflet map tile filter in dark mode for eye-strain reduction */
+html.dark .leaflet-tile-pane {
+  filter: brightness(0.75) invert(1) contrast(2.2) hue-rotate(200deg) saturate(0.4) brightness(0.8);
+}
